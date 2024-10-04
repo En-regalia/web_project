@@ -14,6 +14,26 @@
     padding: 20px;
 }
 
+.horizontal-list {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.horizontal-list li {
+    padding: 20px;
+}
+
+.horizontal-list li a {
+    color: white;
+    text size: 20px;
+}
+
+.horizontal-list li a :hover {
+    text-decoration: underline;
+    text-shadow: 0cm;
+}
+
 .poppins-thin {
     font-family: "Poppins", sans-serif;
     font-weight: 100;
