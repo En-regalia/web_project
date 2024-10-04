@@ -27,7 +27,7 @@
 
 .horizontal-list li a {
     color: white;
-    text size: 20px;
+    font-size: 20px;
 }
 
 .horizontal-list li a :hover {
