@@ -48,37 +48,35 @@ class RequestHandler(BaseHTTPRequestHandler):
         
         #searches for the user's email in the database using the entered email as the query and returns the user_ID
         def handel_email_query(self, query_params):
-            conn = sqlite3.connect('users.db')
-            cursor = conn.cursor()
-            email = query_params['email'][0]
+            try:
+                conn = sqlite3.connect('users.db')
+                cursor = conn.cursor()
+                email = query_params['email'][0]
 
-            cursor.execute("SELECT user_id FROM users WHERE email = ?", (email,))
-            result = cursor.fetchone()
+                cursor.execute("SELECT user_id FROM users WHERE email = ?", (email,))
+                result = cursor.fetchone()
 
-            user_id = result[0]
+                user_id = result[0]
 
-            response = f"User ID for the email {email} is: {user_id}"
+                response = f"User ID for the email {email} is: {user_id}"
 
-            if response:
-                self.send_response(200)
-                self.send_header('Content-type', 'text/plain')
-                self.end_headers()
-                self.wfile.write(response.encode())
-            else:
-                self.send_response(404)
-                self.send_header('Content-type', 'text/plain')
-                self.end_headers()
-                self.wfile.write(b"User not found for the provided email")
-        else:
-            self.send_response(400)
-            self.send_header('Content-type', 'text/plain')
-            self.end_headers()
-            self.wfile.write(b"Bad request: Missing email")
-        finally:
-            conn.close
+                if response:
+                    self.send_response(200)
+                    self.send_header('Content-type', 'text/plain')
+                    self.end_headers()
+                    self.wfile.write(response.encode())
+                else:
+                    self.send_response(404)
+                    self.send_header('Content-type', 'text/plain')
+                    self.end_headers()
+                    self.wfile.write(b"User not found for the provided email")
+        
+            finally:
+                conn.close
         
         def handel_home(self):
             #HOLD WORKING ON PAGE TEMPLATE IN ORDER TO INCLUDEIN HANDELER.
+            print("HOLD_CODE error on line 79")
 
         #baisc error handle in case of path error.
         def handel_error(self):
