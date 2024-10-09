@@ -28,14 +28,28 @@ def initiliseDatabase(db_name):
 class RequestHandler(BaseHTTPRequestHandler):
 
     def do_get(self):
+        
+        #Parsed the URL and extracted query parameters from the incoming GET request 
         parsed_path = urlparse(self.path)
         query_params = parse_qs(parsed_path.query)
 
+        #initalised and coonectioned 
         initiliseDatabase("users.db")
-        conn = sqlite3.connect('users.db')
-        cursor = conn.cursor()
+    
 
+        #Logic to check which responce to give. 
         if "email" in query_params:
+            #Handel email querie defined below
+            handel_email_query(query_params)
+        elif self.path == "/":
+            self.handel_home()
+        else:
+            self.handel_error()
+        
+        #searches for the user's email in the database using the entered email as the query and returns the user_ID
+        def handel_email_query(self, query_params):
+            conn = sqlite3.connect('users.db')
+            cursor = conn.cursor()
             email = query_params['email'][0]
 
             cursor.execute("SELECT user_id FROM users WHERE email = ?", (email,))
@@ -55,12 +69,22 @@ class RequestHandler(BaseHTTPRequestHandler):
                 self.send_header('Content-type', 'text/plain')
                 self.end_headers()
                 self.wfile.write(b"User not found for the provided email")
-            
         else:
             self.send_response(400)
             self.send_header('Content-type', 'text/plain')
             self.end_headers()
             self.wfile.write(b"Bad request: Missing email")
+        finally:
+            conn.close
         
+        def handel_home(self):
+            #HOLD WORKING ON PAGE TEMPLATE IN ORDER TO INCLUDEIN HANDELER.
+
+        #baisc error handle in case of path error.
+        def handel_error(self):
+            self.send_response(404)
+            self.send_header('Content-type', 'text/plain')
+            self.end_headers()
+            self.wfile.write(b"Bad request: Page not found")
 
 
