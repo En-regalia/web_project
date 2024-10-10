@@ -61,14 +61,10 @@ h1 {
   height: fit-content;
 }
 
-.switch-list li {
-  font-family: font-family: "Poppins", sans-serif;
-}
-
 .switch {
   padding-left: 1%;
   display: inline-flex;
-  width: 30px;
+  width: 26px;
   height: 10px;
 }
 
@@ -224,4 +220,3 @@ input:checked + .slider:before {
     font-weight: 900;
     font-style: italic;
   }
-  
