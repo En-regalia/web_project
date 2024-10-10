@@ -61,7 +61,7 @@ h1 {
   width: 50%;
 }
 
-.card.switch-list {
+.switch-list {
   font-family: font-family: "Poppins", sans-serif;
 }
 
@@ -90,7 +90,7 @@ h1 {
   border-radius: 34px;
 }
 
-/* Circle inside the slider */
+
 .slider:before {
   position: absolute;
   content: "";
