@@ -57,10 +57,10 @@ h1 {
   background-color: rgb(0, 217, 255);
   box-shadow: 2px 5px 10px black;
   padding: 20px;
-  width: fit-content;
-  height: fit-content;
+  width: 50%;
 }
 
+/* Switch list styling */
 .switch-list {
   list-style-type: none; /* Removes default bullets */
   padding: 0;
@@ -71,11 +71,12 @@ h1 {
   margin-bottom: 10px; /* Adds space between list items */
 }
 
+/* Switch and slider styling */
 .switch {
-  padding-left: 1%;
+  position: relative;
   display: inline-flex;
-  width: 26px;
-  height: 10px;
+  width: 60px;
+  height: 34px;
 }
 
 .switch input {
@@ -85,7 +86,7 @@ h1 {
 }
 
 .slider {
-  position: relative;
+  position: absolute;
   cursor: pointer;
   top: 0;
   left: 0;
@@ -96,26 +97,24 @@ h1 {
   border-radius: 34px;
 }
 
-
 .slider:before {
   position: absolute;
   content: "";
-  height: 9px;
-  width: 9px;
+  height: 26px;
+  width: 26px;
   left: 4px;
   bottom: 4px;
   background-color: white;
   transition: .4s;
   border-radius: 50%;
-
 }
 
 input:checked + .slider {
-    background-color: #2196F3;
+  background-color: #2196F3;
 }
 
 input:checked + .slider:before {
-    transform: translateX(26px);
+  transform: translateX(26px);
 }
 .spacer {
   height: 10px;
