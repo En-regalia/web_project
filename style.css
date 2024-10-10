@@ -61,6 +61,16 @@ h1 {
   height: fit-content;
 }
 
+.switch-list {
+  list-style-type: none; /* Removes default bullets */
+  padding: 0;
+  margin: 0;
+}
+
+.switch-list li {
+  margin-bottom: 10px; /* Adds space between list items */
+}
+
 .switch {
   padding-left: 1%;
   display: inline-flex;
