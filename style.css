@@ -79,7 +79,7 @@ h1 {
 }
 
 .slider {
-  position: absolute;
+  position: relative;
   cursor: pointer;
   top: 0;
   left: 0;
