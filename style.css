@@ -56,12 +56,12 @@ h1 {
   border-radius: 20px;
   background-color: rgb(0, 217, 255);
   box-shadow: 2px 5px 10px black;
-  justify-content: flex-start;
   padding: 20px;
-  width: 50%;
+  width: fit-content;
+  height: fit-content;
 }
 
-.switch-list {
+.switch-list li {
   font-family: font-family: "Poppins", sans-serif;
 }
 
