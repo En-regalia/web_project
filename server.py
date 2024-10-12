@@ -87,7 +87,7 @@ class RequestHandler(BaseHTTPRequestHandler):
             self.wfile.write(b"Bad request: Page not found")
 
 #block to define the server
-def run(server_class=HTTPServer, handler_class=MyHandler):
+def run(server_class=HTTPServer, handler_class=BaseHTTPRequestHandler):
     server_address = ('', 8000)  # Serve on all available interfaces at port 8000
     httpd = server_class(server_address, handler_class)
     print('Starting server... ready for requests')
