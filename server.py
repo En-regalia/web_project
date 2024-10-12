@@ -85,4 +85,5 @@ class RequestHandler(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(b"Bad request: Page not found")
 
-
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)  # Make it publicly accessible
