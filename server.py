@@ -3,13 +3,6 @@ from urllib.parse import urlparse, parse_qs
 import sqlite3
 import os
 
-#block to define the server
-def run(server_class=HTTPServer, handler_class=MyHandler):
-    server_address = ('', 8000)  # Serve on all available interfaces at port 8000
-    httpd = server_class(server_address, handler_class)
-    print('Starting server... ready for requests')
-    httpd.serve_forever()  # Start serving requests
-
 
 #note: will need to impliment password hashing at a later date. (bcrypt)
 def initiliseDatabase(db_name):
@@ -92,6 +85,13 @@ class RequestHandler(BaseHTTPRequestHandler):
             self.send_header('Content-type', 'text/plain')
             self.end_headers()
             self.wfile.write(b"Bad request: Page not found")
+
+#block to define the server
+def run(server_class=HTTPServer, handler_class=MyHandler):
+    server_address = ('', 8000)  # Serve on all available interfaces at port 8000
+    httpd = server_class(server_address, handler_class)
+    print('Starting server... ready for requests')
+    httpd.serve_forever()  # Start serving requests
 
 if __name__ == '__main__':
     run()
