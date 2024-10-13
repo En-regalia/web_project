@@ -76,8 +76,49 @@ class RequestHandler(BaseHTTPRequestHandler):
                 conn.close
         
         def handel_home(self):
-            #HOLD WORKING ON PAGE TEMPLATE IN ORDER TO INCLUDEIN HANDELER.
-            print("HOLD_CODE error on line 79")
+            self.send_response(200)
+            self.send_header("Content-type", "text/html")
+            self.send_header("Access-Control-Allow-Origin", "*")  # Allow requests from any domain
+            self.end_headers()
+            
+            html_content = """
+                <div class = "card">
+                    <ul class="switch-list">
+                        <h2>Felicia's list</h2>
+                        <li>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                            <span class="slider-text">Chore 1</span>
+                        </li>
+                        <li>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                            <span class="slider-text">Chore 2</span>
+                        </li>
+                        <li>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                            <span class="slider-text">Chore 3</span>
+                        </li>
+                        <li>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                            <span class="slider-text">Chore 4</span>
+                        </li>
+                    </ul>
+                </div>
+            """
+
+            self.wfile.write(html_content.encode('utf-8'))
+
 
         #baisc error handle in case of path error.
         def handel_error(self):
