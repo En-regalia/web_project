@@ -113,11 +113,11 @@ File Structure
 ```bash
 
 ├── /public
-│   ├── index.html       # Main frontend page
 │   ├── style.css        # CSS for styling the pages
 │   ├── app.js           # JavaScript for frontend functionality
 ├── /Database
 │   └── chores.db        # SQLite database file (auto-generated)
+├── index.html           # Main frontend page
 ├── server.py            # Python backend server
 ├── README.md            # This README file
 └── requirements.txt     # (Optional) Any dependencies (none currently)
