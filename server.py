@@ -44,8 +44,10 @@ class RequestHandler(BaseHTTPRequestHandler):
             handel_email_query(query_params)
         elif self.path == "/":
             self.handel_home()
+            print("Sending home page")
         else:
             self.handel_error()
+            print("Sending Error page")
         
         #searches for the user's email in the database using the entered email as the query and returns the user_ID
         def handel_email_query(self, query_params):
