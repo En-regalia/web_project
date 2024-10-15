@@ -1,23 +1,24 @@
 
-document.getElementById("get-home").addEventListener("click", function(event) {
+document.getElementById('get-home').addEventListener("click", function(event) {
     event.preventDefault();
 
-    console.log("Sending GET request")
+    console.log("Sending GET request");
 
-    fetch("http://ec2-13-43-90-147.eu-west-2.compute.amazonaws.com")
-        
-        .then(response =>{
-            if(!response.ok) {
-                throw new Error ("Request was not ok" + response.statusText)
+    fetch("http://localhost:8000")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Request was not ok: " + response.status);
             }
-            console.log("Response received")
+            console.log("Response received");
             return response.text();
         })
-        .then (html => {
-            document.getElementById("card-container").innerHTML = html;
-            console.log("Homepage requested and received")
+        .then(html => {
+            console.log("Card Container Found:", cardContainer);
+            console.log('HTML found:', html)
+            document.querySelector("#cardContainer").innerHTML = html;
+            console.log("Homepage requested and received");
         })
         .catch(error => {
-            console.error("There was a problem witht he get request")
-        })
-})
+            console.error("There was a problem with the GET request:", error);
+        });
+});
