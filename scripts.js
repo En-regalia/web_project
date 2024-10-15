@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById('get-home').addEventListener("click", function(event) {
+    document.getElementById('get-chore-list').addEventListener("click", function(event) {
         event.preventDefault();
 
         console.log("Sending GET request");
